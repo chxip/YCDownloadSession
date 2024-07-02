@@ -90,14 +90,14 @@ static NSString * const kIsAllowCellar = @"kIsAllowCellar";
 }
 
 - (void)recoveryExceptionTasks {
-    NSMutableDictionary *dictM = [self.session valueForKey:@"tasks"];
-    [dictM.copy enumerateKeysAndObjectsUsingBlock:^(NSNumber *_Nonnull key, NSURLSessionDownloadTask *obj, BOOL * _Nonnull stop) {
-        YCDownloadTask *task = [YCDownloadDB taskWithStid:key.integerValue].firstObject;
-        task ? [self memCacheDownloadTask:obj task:task] : [obj cancel];
-        if (task.downloadTask && task.downloadTask.state != NSURLSessionTaskStateRunning) {
-            [self pauseTask:task];
-        }
-    }];
+    //NSMutableDictionary *dictM = [self.session valueForKey:@"tasks"];
+    //[dictM.copy enumerateKeysAndObjectsUsingBlock:^(NSNumber *_Nonnull key, NSURLSessionDownloadTask *obj, BOOL * _Nonnull stop) {
+     //   YCDownloadTask *task = [YCDownloadDB taskWithStid:key.integerValue].firstObject;
+     //   task ? [self memCacheDownloadTask:obj task:task] : [obj cancel];
+     //   if (task.downloadTask && task.downloadTask.state != NSURLSessionTaskStateRunning) {
+     //       [self pauseTask:task];
+     //   }
+    //}];
 }
 - (void)addNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillBecomActive) name:UIApplicationDidBecomeActiveNotification object:nil];
