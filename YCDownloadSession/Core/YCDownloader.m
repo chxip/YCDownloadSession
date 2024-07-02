@@ -79,7 +79,7 @@ static NSString * const kIsAllowCellar = @"kIsAllowCellar";
 - (NSURLSession *)backgroundUrlSession {
     NSURLSession *session = nil;
     NSString *identifier = [self backgroundSessionIdentifier];
-    NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:identifier];
+    NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     sessionConfig.allowsCellularAccess = [[NSUserDefaults standardUserDefaults] boolForKey:kIsAllowCellar];
     session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     return session;
